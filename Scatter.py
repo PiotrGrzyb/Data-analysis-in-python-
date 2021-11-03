@@ -7,6 +7,11 @@ def main():
     telescopeDataSet.columns = ['fLength', 'fWidth', 'fSize', 'fConc', 'fConc1', 'fAsym',
                                 'fM3Long', 'fM3Trans', 'fAlpha', 'fDist', 'class']
 
+    #fig = px.scatter(telescopeDataSet, x="fLength", y="class", size="Energy", color="Beats Per Minute (BPM)",
+    #                 hover_name="Title")
+
+    fig = px.scatter(telescopeDataSet, x="class", y="fLength")
+    fig.show()
 
 if __name__ == '__main__':
     main()
