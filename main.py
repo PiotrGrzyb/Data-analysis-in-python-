@@ -12,7 +12,7 @@ def main():
     # print(telescopeDataSet.head())
     # print(telescopeDataSet.min('fLength'));
     minValue = telescopeDataSet.min()
-    # print(minValue)
+    print(minValue)
 
     maxValue = telescopeDataSet.max()
     # print(maxValue)
@@ -35,7 +35,7 @@ def main():
     q01 = telescopeDataSet.quantile(0.1)
     q09 = telescopeDataSet.quantile(0.9)
     # print(q01)
-    print(q09)
+    #print(q09)
 
 
 if __name__ == '__main__':
