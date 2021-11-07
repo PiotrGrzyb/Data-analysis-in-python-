@@ -7,6 +7,10 @@ from AnalysisF import analysis
 from PearsonColerationF import pearson
 from ScatterWithRegressionF import scatterRegression
 from ValuePlotF import valueplot
+from BoxPlotF import box
+from HistogramsF import histograms
+from ScatterF import scatter
+
 
 def main():
     run = True
@@ -36,9 +40,8 @@ def main():
         print("[5] Value plot")
         print("[6] Box plot")
         print("[7] Histograms")
-        print("[8] Linear regression")
-        print("[9] Quit")
-        choice2 = input("Choose data set to load:")
+        print("[8] Quit")
+        choice2 = input("What you want to view?:")
 
         if int(choice2) == 1:
             if int(analysis(dataSet)) == 0:
@@ -48,13 +51,22 @@ def main():
         elif int(choice2) == 2:
             pearson(dataSet, choice)
 
+        elif int(choice2) == 3:
+            scatter(dataSet, choice)
+
         elif int(choice2) == 4:
             scatterRegression(dataSet, choice)
 
         elif int(choice2) == 5:
             valueplot(dataSet, choice)
 
-        elif int(choice2) == 9:
+        elif int(choice2) == 6:
+            box(dataSet, choice)
+
+        elif int(choice2) == 7:
+            histograms(dataSet, choice)
+
+        elif int(choice2) == 8:
             run = False
 
 

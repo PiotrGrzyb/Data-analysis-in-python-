@@ -50,12 +50,6 @@ def valueplot(dataSet=None, choice=None):
             classLine = px.line(data_frame=dataSet, y='class')
             classLine.show()
     else:
-        dataSet.columns = ['Quality', 'Pre-screeening', 'Microaneurysms1', 'Microaneurysms2', 'Microaneurysms3',
-                           'Microaneurysms4', 'Microaneurysms5', 'Microaneurysms6', 'Exudates1', 'Exudates2',
-                           'Exudates3', 'Exudates4', 'Exudates5', 'Exudates6', 'Exudates7',
-                           'Exudates8', 'Euclidean distance of the center of macula',
-                           'The diameter of the optic disc',
-                           'AM/FM-based classification', 'class']
         print("[1] Quality")
         print("[2] Pre-screeening")
         print("[3] Microaneurysms1")
@@ -138,4 +132,3 @@ def valueplot(dataSet=None, choice=None):
         elif int(choice1) == 20:
             ValuePlot = px.line(data_frame=dataSet, y='class')
             ValuePlot.show()
-
