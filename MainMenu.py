@@ -1,8 +1,5 @@
 import pandas
-from pandas import Series, DataFrame
-from pandas.core.generic import NDFrame
-from pandas.io.parsers import TextFileReader
-
+import plotly.express as px
 from AnalysisF import analysis
 from PearsonColerationF import pearson
 from ScatterWithRegressionF import scatterRegression
@@ -17,7 +14,7 @@ def main():
     while run:
         print("\n")
         print("[1] Telescope data set")
-        print("[2] Sonar data set")
+        print("[2] Diabetic retinopathy data set")
         choice = input("Choose data set to load:")
         dataSet = None
         if int(choice) == 1:
@@ -40,7 +37,8 @@ def main():
         print("[5] Value plot")
         print("[6] Box plot")
         print("[7] Histograms")
-        print("[8] Quit")
+        print("[8] Correlation matrix")
+        print("[9] Quit")
         choice2 = input("What you want to view?:")
 
         if int(choice2) == 1:
@@ -66,7 +64,14 @@ def main():
         elif int(choice2) == 7:
             histograms(dataSet, choice)
 
+        elif int(choice2) == 7:
+            histograms(dataSet, choice)
+
         elif int(choice2) == 8:
+            fig = px.imshow(dataSet.corr())
+            fig.show()
+
+        elif int(choice2) == 9:
             run = False
 
 

@@ -8,7 +8,7 @@ def main():
                                 'fM3Long', 'fM3Trans', 'fAlpha', 'fDist', 'class']
     # print(telescopeDataSet.head())
 
-    fLenghtCorrVal = telescopeDataSet['fLength'].corr(telescopeDataSet['class'], method="pearson")
+    fLenghtCorrVal = telescopeDataSet['fLength'].corr(telescopeDataSet['fWidth'], method="pearson")
     fWidthCorrVal = telescopeDataSet['fWidth'].corr(telescopeDataSet['class'], method="pearson")
     fSizeCorrVal = telescopeDataSet['fSize'].corr(telescopeDataSet['class'], method="pearson")
     fConcCorrVal = telescopeDataSet['fConc'].corr(telescopeDataSet['class'], method="pearson")
