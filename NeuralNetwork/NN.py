@@ -22,7 +22,9 @@ def main():
     print(X_train.shape, X_val.shape, X_test.shape, Y_train.shape, Y_val.shape, Y_test.shape)
     print(X_train)
     model = Sequential([
-        Dropout(0.1, input_dim=19),
+        Dense(32, activation="relu", input_dim=19),
+        BatchNormalization(),
+        Dense(32, activation="relu"),
         BatchNormalization(),
         Dense(32, activation="relu"),
         BatchNormalization(),
@@ -32,10 +34,10 @@ def main():
     model.compile(optimizer='sgd',
                   loss='binary_crossentropy',
                   metrics=['accuracy'])
-    K.set_value(model.optimizer.learning_rate, 0.01)
+    #K.set_value(model.optimizer.learning_rate, 0.01)
 
     hist = model.fit(X_train, Y_train,
-                     epochs=100,
+                     epochs=500,
                      validation_data=(X_val, Y_val))
 
     model.evaluate(X_test, Y_test)
