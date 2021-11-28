@@ -4,6 +4,7 @@ from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 from keras.models import Sequential
 from keras.layers import Dense, BatchNormalization
+from keras_visualizer import visualizer
 import matplotlib.pyplot as plt
 
 
@@ -31,7 +32,7 @@ def main():
                   metrics=['accuracy'])
 
     hist = model.fit(X_train, Y_train,
-                     epochs=50,
+                     epochs=10,
                      validation_data=(X_val, Y_val))
     model.evaluate(X_test, Y_test)
     """
@@ -43,6 +44,7 @@ def main():
     plt.legend(['Train', 'Val'], loc='upper right')
     plt.show()
     """
+
     plt.plot(hist.history['accuracy'])
     plt.plot(hist.history['val_accuracy'])
     plt.title('Model accuracy')
