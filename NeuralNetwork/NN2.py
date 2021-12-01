@@ -17,8 +17,8 @@ def main():
     inputDataScaled = min_max_scaler.fit_transform(inputData)
     X_train, X_val_and_test, Y_train, Y_val_and_test = train_test_split(inputDataScaled, outputData, test_size=0.3)
     X_val, X_test, Y_val, Y_test = train_test_split(X_val_and_test, Y_val_and_test, test_size=0.5)
-    print(X_train.shape, X_val.shape, X_test.shape, Y_train.shape, Y_val.shape, Y_test.shape)
-    print(X_train)
+    # print(X_train.shape, X_val.shape, X_test.shape, Y_train.shape, Y_val.shape, Y_test.shape)
+    # print(X_train)
     model = Sequential([
         Dense(10, activation="relu", input_dim=10),
         BatchNormalization(),
