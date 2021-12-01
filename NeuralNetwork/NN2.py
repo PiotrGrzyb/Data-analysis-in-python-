@@ -20,9 +20,9 @@ def main():
     # print(X_train.shape, X_val.shape, X_test.shape, Y_train.shape, Y_val.shape, Y_test.shape)
     # print(X_train)
     model = Sequential([
-        Dense(10, activation="relu", input_dim=10),
+        Dense(10, activation="tanh", input_dim=10),
         BatchNormalization(),
-        Dense(32, activation="relu"),
+        Dense(32, activation="tanh"),
         BatchNormalization(),
         Dense(1, activation="sigmoid")
     ])
