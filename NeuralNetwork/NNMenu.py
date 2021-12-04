@@ -9,10 +9,11 @@ from keras import backend as K
 import keras
 import tensorflow as tf
 
+
 def main():
     epochs = input("Podaj liczbe epok:")
-    layers = input("Podaj liczbe warstw sieci:")
-    neurons = input("Podaj liczbe neuronow w warstwach:")
+    # layers = input("Podaj liczbe warstw sieci:")
+    # neurons = input("Podaj liczbe neuronow w warstwach:")
     learn = input("Podaj współczynnik uczenia:")
 
     dataSetInitial1 = pandas.read_csv('../messidor_features.data')
@@ -26,20 +27,18 @@ def main():
     X_train, X_val_and_test, Y_train, Y_val_and_test = train_test_split(inputDataScaled, outputData, test_size=0.3)
     X_val, X_test, Y_val, Y_test = train_test_split(X_val_and_test, Y_val_and_test, test_size=0.5)
 
-    model = Sequential()
-    model.add(Dense(19, activation="relu", input_dim=19))
-    i = 0
-    while i < int(layers):
-        model.add(Dense(int(neurons)))
-        model.add(Activation('relu'))
-        model.add(BatchNormalization())
-        model.add(Dropout(0.1))
-        i = i + 1
-        print(neurons)
+    model = Sequential([
+        Dense(19, activation="tanh", input_dim=19, kernel_regularizer="l2"),
+        BatchNormalization(),
+        Dense(32, activation="tanh", kernel_regularizer="l2"),
+        BatchNormalization(),
+        Dense(10, activation="tanh", kernel_regularizer="l2"),
+        BatchNormalization(),
+        Dense(1, activation="sigmoid")
+    ])
 
-    Dense(1, activation="sigmoid")
+    optimizer = tf.keras.optimizers.SGD(learning_rate=learn)
 
-    optimizer = tf.keras.optimizers.SGD(learning_rate=0.01)
     model.compile(optimizer=optimizer,
                   loss='binary_crossentropy',
                   metrics=['accuracy'])
