@@ -51,23 +51,24 @@ def main():
     model.evaluate(X_test, Y_test)
     print(model.optimizer.get_config())
 
-    """
+    plt.subplot(1, 2, 1)
     plt.plot(hist.history['loss'])
     plt.plot(hist.history['val_loss'])
     plt.title('Model loss')
     plt.ylabel('Loss')
     plt.xlabel('Epoch')
     plt.legend(['Train', 'Val'], loc='upper right')
-    plt.show()
-    """
 
+    plt.subplot(1, 2, 2)
     plt.plot(hist.history['accuracy'])
     plt.plot(hist.history['val_accuracy'])
     plt.title('Model accuracy')
     plt.ylabel('Accuracy')
     plt.xlabel('Epoch')
     plt.legend(['Train', 'Val'], loc='lower right')
+
     plt.show()
+    input()
 
 
 if __name__ == '__main__':
