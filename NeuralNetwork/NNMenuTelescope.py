@@ -30,14 +30,14 @@ def main():
     X_val, X_test, Y_val, Y_test = train_test_split(X_val_and_test, Y_val_and_test, test_size=0.5)
 
     model = Sequential()
-    model.add(Dense(19, activation="tanh", input_dim=10, kernel_regularizer="l1"))
+    model.add(Dense(19, activation="tanh", input_dim=10))
     model.add(BatchNormalization())
     for i in layers:
-        model.add(Dense(int(neurons), activation="tanh", kernel_regularizer="l1"))
+        model.add(Dense(int(neurons), activation="tanh"))
         model.add(BatchNormalization())
     model.add(Dense(1, activation="sigmoid"))
 
-    optimizer = tf.keras.optimizers.Adam(learning_rate=float(learn), decay=float(decay))
+    optimizer = tf.keras.optimizers.Nadam(learning_rate=float(learn), decay=float(decay))
 
     model.compile(optimizer=optimizer,
                   loss='binary_crossentropy',
